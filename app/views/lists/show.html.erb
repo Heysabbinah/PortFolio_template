@@ -24,13 +24,19 @@
   <strong>Context:</strong>
   <%= @list.context %>
 </p>
-<p>
-  <strong>List of Task:</strong>
-  <% @tasks.each do |task| %>
-  <%= task.name %>
-   <%= task.content%>
- <% end %>
-  </p>
+
+  <% @list.tasks.each do |task| %>
+     <tr>
+       <td><%= task.name %></td>
+       <td><%= task.content %></td>
+       <td><%= task.state %></td>
+       <td><%= task.list %></td>
+       <td><%= task.duration %></td>
+       <td><%= link_to 'Show', task %></td>
+       <td><%= link_to 'Edit', edit_task_path(task) %></td>
+       <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+   <% end %>
 
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
