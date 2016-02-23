@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <h1>Listing Lists</h1>
 
 <table>
@@ -15,8 +16,9 @@
   </thead>
 
   <tbody>
-    <% @lists.each do |list| %>
-      <tr>
+    <% @lists.each do |list| %> <!--a chaque iteration c'est une variable temporaire - chacun fait ca -->
+
+      <tr class="listclass">
         <td><%= list.name %></td>
         <td><%= list.user %></td>
         <td><%= list.state %></td>
@@ -25,11 +27,28 @@
         <td><%= link_to 'Show', list %></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
         <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add Task', new_task_path(list_id: list.id) %></td> <!--ajout pr associer task form direct a listing lists -->
       </tr>
-    <% end %>
+
+<% list.tasks.each do |task| %>
+   <tr class="taskclass.listclass {">
+     <td></td>
+     <td></td>
+     <td><%= task.name %></td>
+     <td><%= task.content %></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+   </tr>
+     <% end %>
+     <% end %>
+
+
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New List', new_list_path %>
+</div>

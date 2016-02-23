@@ -24,6 +24,14 @@
   <strong>Context:</strong>
   <%= @list.context %>
 </p>
+<p>
+  <strong>List of Task:</strong>
+  <% @tasks.each do |task| %>
+  <%= task.name %>
+   <%= task.content%>
+ <% end %>
+  </p>
+
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
