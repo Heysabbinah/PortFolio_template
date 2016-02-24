@@ -13,7 +13,12 @@ class ApplicationController < ActionController::Base
   ### _Devise blog/news : blog.plataformatec.com.br/tag/devise
   before_action :authenticate_user! 
 
-  def page_vide
-  	
-  end
+  def configure_permitted_parameters
+   devise_parameter_sanitizer.for(:sign_up) << :username
+   devise_parameter_sanitizer.for(:sign_up) << :email
+   # ici pr que l'avatar se met au moment du sign-up
+   devise_parameter_sanitizer.for(:account_update) << :username
+   devise_parameter_sanitizer.for(:account_update) << :email
+   devise_parameter_sanitizer.for(:account_update) << :avatar
+ end
 end
