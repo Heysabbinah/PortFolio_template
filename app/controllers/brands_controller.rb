@@ -5,6 +5,7 @@ class BrandsController < ApplicationController
   # GET /brands.json
   def index
     @brands = Brand.all
+    @products = Product.all
   end
 
   # GET /brands/1
@@ -15,6 +16,7 @@ class BrandsController < ApplicationController
   # GET /brands/new
   def new
     @brand = Brand.new
+
   end
 
   # GET /brands/1/edit
@@ -25,6 +27,8 @@ class BrandsController < ApplicationController
   # POST /brands.json
   def create
     @brand = Brand.new(brand_params)
+    @brand.user_id = current_user.id # pr afficher le user id 
+    @brand.save
 
     respond_to do |format|
       if @brand.save

@@ -23,3 +23,4 @@ User.create!(email: 'admin@admin.com', password:"password", password_confirmatio
 ## exemple:
                                                                         
 # Post.create(name: "title exemple",content: text4) 
+
