@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user! 
 
   def page_vide
-  	## /!\   Nb: definir ses pages statiques ici  c'est CACA!!!!   
-  	## /!\   do\/ob  (pour les aveugles c'est le regard colère)
+  	
   end
 end
